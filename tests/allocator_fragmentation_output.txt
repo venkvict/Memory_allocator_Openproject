@@ -1,0 +1,73 @@
+=============================================
+ Memory Management Simulator
+=============================================
+Modes:
+  mode standard
+  mode buddy
+  mode cache
+
+STANDARD mode commands:
+  init memory <size>
+  set allocator <first|best|worst>
+  malloc <size>
+  free <block_id>
+  dump
+  stats
+
+BUDDY mode commands:
+  init memory <size>   (size must be power of 2)
+  malloc <size>
+  free <block_id>
+  dump
+
+CACHE mode commands:
+  cache init L1 <size> <block> <assoc>
+  cache init L2 <size> <block> <assoc>
+  cache access <address>
+  stats
+
+  mode vm
+VM mode commands:
+  vm init <pages> <page_size> <frames>
+  access <virtual_address>
+  stats
+
+General:
+  exit
+=============================================
+
+> Switched to STANDARD allocator mode
+> Initialized memory with 512 bytes
+> Unknown command in STANDARD mode
+> Allocated block id=1
+> Allocated block id=2
+> Allocated block id=3
+> Allocated block id=4
+> Unknown command in STANDARD mode
+> Block 2 freed
+> Block 4 freed
+> Unknown command in STANDARD mode
+> Allocated block id=5
+> Memory Layout:
+[0 - 99] USED (id=1)
+[100 - 199] FREE
+[200 - 299] USED (id=3)
+[300 - 479] USED (id=5)
+[480 - 511] FREE
+-----------------------------
+> 
+===== MEMORY STATISTICS =====
+Total Memory: 512 bytes
+Used Memory: 380 bytes
+Free Memory: 132 bytes
+Memory Utilization: 74.22%
+Internal Fragmentation: 0 bytes
+External Fragmentation: 24.24%
+Allocation Requests: 5
+Successful Allocations: 5
+Failed Allocations: 0
+Allocation Success Rate: 100.00%
+==============================
+
+> Unknown command in STANDARD mode
+> 

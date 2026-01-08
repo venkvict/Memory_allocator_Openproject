@@ -1,0 +1,16 @@
+mode buddy
+init memory 1024
+
+malloc 100
+malloc 200
+malloc 60
+dump
+
+free 2
+dump
+
+free 1
+free 3
+dump
+
+exit

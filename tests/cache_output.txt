@@ -1,0 +1,76 @@
+=============================================
+ Memory Management Simulator
+=============================================
+Modes:
+  mode standard
+  mode buddy
+  mode cache
+
+STANDARD mode commands:
+  init memory <size>
+  set allocator <first|best|worst>
+  malloc <size>
+  free <block_id>
+  dump
+  stats
+
+BUDDY mode commands:
+  init memory <size>   (size must be power of 2)
+  malloc <size>
+  free <block_id>
+  dump
+
+CACHE mode commands:
+  cache init L1 <size> <block> <assoc>
+  cache init L2 <size> <block> <assoc>
+  cache access <address>
+  stats
+
+  mode vm
+VM mode commands:
+  vm init <pages> <page_size> <frames>
+  access <virtual_address>
+  stats
+
+General:
+  exit
+=============================================
+
+> Switched to CACHE mode
+> L1 initialized: 256 bytes, 64B block, 2-way, 2 sets
+> L2 initialized: 512 bytes, 64B block, 2-way, 4 sets
+> Unknown command in CACHE mode
+> L1 MISS
+L2 MISS — fetching from memory
+Total access time: 111 cycles
+> L1 MISS
+L2 MISS — fetching from memory
+Total access time: 111 cycles
+> L1 MISS
+L2 MISS — fetching from memory
+Total access time: 111 cycles
+> L1 HIT
+Total access time: 1 cycles
+> L1 MISS
+L2 MISS — fetching from memory
+Total access time: 111 cycles
+> L1 MISS
+L2 MISS — fetching from memory
+Total access time: 111 cycles
+> L1 MISS
+L2 HIT
+Total access time: 11 cycles
+> Unknown command in CACHE mode
+> 
+=== L1 Cache Statistics ===
+Hits: 1
+Misses: 6
+Total Accesses: 7
+Hit Rate: 14.29%
+
+=== L2 Cache Statistics ===
+Hits: 1
+Misses: 5
+Total Accesses: 6
+Hit Rate: 16.67%
+> 

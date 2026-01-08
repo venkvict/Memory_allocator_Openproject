@@ -1,0 +1,82 @@
+=============================================
+ Memory Management Simulator
+=============================================
+Modes:
+  mode standard
+  mode buddy
+  mode cache
+
+STANDARD mode commands:
+  init memory <size>
+  set allocator <first|best|worst>
+  malloc <size>
+  free <block_id>
+  dump
+  stats
+
+BUDDY mode commands:
+  init memory <size>   (size must be power of 2)
+  malloc <size>
+  free <block_id>
+  dump
+
+CACHE mode commands:
+  cache init L1 <size> <block> <assoc>
+  cache init L2 <size> <block> <assoc>
+  cache access <address>
+  stats
+
+  mode vm
+VM mode commands:
+  vm init <pages> <page_size> <frames>
+  access <virtual_address>
+  stats
+
+General:
+  exit
+=============================================
+
+> Switched to CACHE mode
+> L1 initialized: 512 bytes, 64B block, 2-way, 4 sets
+> L2 initialized: 2048 bytes, 64B block, 4-way, 8 sets
+> Unknown command in CACHE mode
+> Switched to VM mode
+> Virtual memory initialized:
+Pages: 6, Page size: 256, Frames: 2
+> Unknown command in VM mode
+> Page fault on page 0
+L1 MISS
+L2 MISS — fetching from memory
+Total access time: 111 cycles
+> Page fault on page 1
+L1 MISS
+L2 MISS — fetching from memory
+Total access time: 111 cycles
+> Page fault on page 2
+L1 MISS
+L2 MISS — fetching from memory
+Total access time: 111 cycles
+> Page fault on page 3
+L1 MISS
+L2 MISS — fetching from memory
+Total access time: 111 cycles
+> Page fault on page 0
+L1 MISS
+L2 MISS — fetching from memory
+Total access time: 111 cycles
+> Page fault on page 1
+L1 MISS
+L2 MISS — fetching from memory
+Total access time: 111 cycles
+> Page fault on page 2
+L1 MISS
+L2 MISS — fetching from memory
+Total access time: 111 cycles
+> Unknown command in VM mode
+> 
+=== Virtual Memory Statistics ===
+Page hits: 0
+Page faults: 7
+Total accesses: 7
+Page fault rate: 100%
+> 

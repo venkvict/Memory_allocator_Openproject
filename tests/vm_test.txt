@@ -1,0 +1,16 @@
+mode cache
+cache init L1 512 64 2
+cache init L2 2048 64 4
+
+mode vm
+vm init 4 256 2
+
+access 0
+access 256
+access 512
+access 768
+access 0
+access 256
+
+stats
+exit

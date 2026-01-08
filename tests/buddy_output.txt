@@ -1,0 +1,83 @@
+=============================================
+ Memory Management Simulator
+=============================================
+Modes:
+  mode standard
+  mode buddy
+  mode cache
+
+STANDARD mode commands:
+  init memory <size>
+  set allocator <first|best|worst>
+  malloc <size>
+  free <block_id>
+  dump
+  stats
+
+BUDDY mode commands:
+  init memory <size>   (size must be power of 2)
+  malloc <size>
+  free <block_id>
+  dump
+
+CACHE mode commands:
+  cache init L1 <size> <block> <assoc>
+  cache init L2 <size> <block> <assoc>
+  cache access <address>
+  stats
+
+  mode vm
+VM mode commands:
+  vm init <pages> <page_size> <frames>
+  access <virtual_address>
+  stats
+
+General:
+  exit
+=============================================
+
+> Switched to BUDDY allocator mode
+> Buddy allocator initialized with 1024 bytes
+> Unknown command in BUDDY mode
+> Allocated block id=1
+> Allocated block id=2
+> Allocated block id=3
+> 
+=== Buddy Allocator Dump ===
+Allocated blocks:
+ID 3: [0x80 - 0xbf] (64 bytes)
+ID 2: [0x100 - 0x1ff] (256 bytes)
+ID 1: [0x0 - 0x7f] (128 bytes)
+
+Free blocks:
+Size 64: 0xc0 
+Size 512: 0x200 
+============================
+
+> Unknown command in BUDDY mode
+> Block 2 freed
+> 
+=== Buddy Allocator Dump ===
+Allocated blocks:
+ID 3: [0x80 - 0xbf] (64 bytes)
+ID 1: [0x0 - 0x7f] (128 bytes)
+
+Free blocks:
+Size 64: 0xc0 
+Size 256: 0x100 
+Size 512: 0x200 
+============================
+
+> Unknown command in BUDDY mode
+> Block 1 freed
+> Block 3 freed
+> 
+=== Buddy Allocator Dump ===
+Allocated blocks:
+
+Free blocks:
+Size 1024: 0x0 
+============================
+
+> Unknown command in BUDDY mode
+> 

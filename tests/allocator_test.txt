@@ -1,0 +1,24 @@
+mode standard
+init memory 1024
+
+set allocator first
+malloc 100
+malloc 200
+malloc 300
+free 2
+malloc 150
+
+dump
+stats
+
+set allocator best
+malloc 180
+dump
+stats
+
+set allocator worst
+malloc 50
+dump
+stats
+
+exit

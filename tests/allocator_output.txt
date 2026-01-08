@@ -1,0 +1,122 @@
+=============================================
+ Memory Management Simulator
+=============================================
+Modes:
+  mode standard
+  mode buddy
+  mode cache
+
+STANDARD mode commands:
+  init memory <size>
+  set allocator <first|best|worst>
+  malloc <size>
+  free <block_id>
+  dump
+  stats
+
+BUDDY mode commands:
+  init memory <size>   (size must be power of 2)
+  malloc <size>
+  free <block_id>
+  dump
+
+CACHE mode commands:
+  cache init L1 <size> <block> <assoc>
+  cache init L2 <size> <block> <assoc>
+  cache access <address>
+  stats
+
+  mode vm
+VM mode commands:
+  vm init <pages> <page_size> <frames>
+  access <virtual_address>
+  stats
+
+General:
+  exit
+=============================================
+
+> Switched to STANDARD allocator mode
+> Initialized memory with 1024 bytes
+> Unknown command in STANDARD mode
+> Allocator set to first
+> Allocated block id=1
+> Allocated block id=2
+> Allocated block id=3
+> Block 2 freed
+> Allocated block id=4
+> Unknown command in STANDARD mode
+> Memory Layout:
+[0 - 99] USED (id=1)
+[100 - 249] USED (id=4)
+[250 - 299] FREE
+[300 - 599] USED (id=3)
+[600 - 1023] FREE
+-----------------------------
+> 
+===== MEMORY STATISTICS =====
+Total Memory: 1024 bytes
+Used Memory: 550 bytes
+Free Memory: 474 bytes
+Memory Utilization: 53.71%
+Internal Fragmentation: 0 bytes
+External Fragmentation: 10.55%
+Allocation Requests: 4
+Successful Allocations: 4
+Failed Allocations: 0
+Allocation Success Rate: 100.00%
+==============================
+
+> Unknown command in STANDARD mode
+> Allocator set to best
+> Allocated block id=5
+> Memory Layout:
+[0 - 99] USED (id=1)
+[100 - 249] USED (id=4)
+[250 - 299] FREE
+[300 - 599] USED (id=3)
+[600 - 779] USED (id=5)
+[780 - 1023] FREE
+-----------------------------
+> 
+===== MEMORY STATISTICS =====
+Total Memory: 1024 bytes
+Used Memory: 730 bytes
+Free Memory: 294 bytes
+Memory Utilization: 71.29%
+Internal Fragmentation: 0 bytes
+External Fragmentation: 17.01%
+Allocation Requests: 5
+Successful Allocations: 5
+Failed Allocations: 0
+Allocation Success Rate: 100.00%
+==============================
+
+> Unknown command in STANDARD mode
+> Allocator set to worst
+> Allocated block id=6
+> Memory Layout:
+[0 - 99] USED (id=1)
+[100 - 249] USED (id=4)
+[250 - 299] FREE
+[300 - 599] USED (id=3)
+[600 - 779] USED (id=5)
+[780 - 829] USED (id=6)
+[830 - 1023] FREE
+-----------------------------
+> 
+===== MEMORY STATISTICS =====
+Total Memory: 1024 bytes
+Used Memory: 780 bytes
+Free Memory: 244 bytes
+Memory Utilization: 76.17%
+Internal Fragmentation: 0 bytes
+External Fragmentation: 20.49%
+Allocation Requests: 6
+Successful Allocations: 6
+Failed Allocations: 0
+Allocation Success Rate: 100.00%
+==============================
+
+> Unknown command in STANDARD mode
+> 
